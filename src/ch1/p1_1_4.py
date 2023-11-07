@@ -4,7 +4,9 @@ import statistics
 from tqdm import tqdm
 
 """
-4. In raquetball, a player continues to serve as long as she is winning; a point
+1.1.4.
+
+In raquetball, a player continues to serve as long as she is winning; a point
 is scored only when a player is serving and wins the volley. The first player
 to win 21 points wins the game. Assume that you serve first and have a
 probability .6 of winning a volley when you serve and probability .5 when
