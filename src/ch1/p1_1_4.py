@@ -1,7 +1,6 @@
 import random
-import statistics
 
-from tqdm import tqdm
+from utils.sim import run_sims_and_report
 
 """
 1.1.4.
@@ -42,22 +41,10 @@ def play_game() -> int:
     return 1 if p1_score == WINNING_SCORE else 2
 
 
-def run_sample(trials: int) -> float:
-    p1_win_ct = 0
-    for _ in range(trials):
-        p1_win_ct += 1 if play_game() == 1 else 0
-    # print(f"p1_win_ct={p1_win_ct}, trials={trials} -> p = {p1_win_ct / trials}")
-    return p1_win_ct / trials
-
-
-samples = 100
-trials = 1000
-sample_results = []
-for i in tqdm(range(samples)):
-    sample_results.append(run_sample(trials=trials))
-
-print(
-    f"mean={statistics.mean(sample_results)}, stdev={statistics.stdev(sample_results)}"
+run_sims_and_report(
+    fn=lambda: play_game() == 1,
+    sample_size=1000,
+    trials_per_sample=1000,
 )
 
 

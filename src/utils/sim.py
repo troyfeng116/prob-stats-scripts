@@ -24,13 +24,23 @@ def run_sample(fn: Callable[[], bool], trials: int) -> float:
 
 def run_sims_and_report(
     fn: Callable[[], bool],
-    samples: Optional[int] = 100,
-    trials: Optional[int] = 100,
+    sample_size: Optional[int] = 100,
+    trials_per_sample: Optional[int] = 100,
     sample_res_map: Optional[Callable[[float], float]] = lambda x: x,
 ):
+    """Run `samples` rounds of `trials` trials of `fn`, compute + report sample aggregate statistics.
+
+    Args:
+        fn (Callable[[], bool]): Single experiment trial runnable; return `True` iff success.
+        samples (Optional[int], optional): Size of sample. Defaults to 100.
+        trials (Optional[int], optional): Number of trials to run per sample. Defaults to 100.
+        sample_res_map (Optional[Callable[[float], float]], optional): Additional map to apply to each sample result. Defaults to identity.
+    """
     sample_results = []
-    for _ in tqdm(range(samples)):
-        sample_results.append(sample_res_map(run_sample(fn=fn, trials=trials)))
+    for _ in tqdm(range(sample_size)):
+        sample_results.append(
+            sample_res_map(run_sample(fn=fn, trials=trials_per_sample))
+        )
 
     print(
         f"mean={statistics.mean(sample_results)}, stdev={statistics.stdev(sample_results)}"
