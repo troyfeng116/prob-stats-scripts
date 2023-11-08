@@ -24,7 +24,7 @@ def is_in_circle(pt: Tuple[float, float], c_pt: Tuple[float, float], r: float) -
 
 run_sims_and_report(
     fn=lambda: is_in_circle(pt=choose_point(), c_pt=CENTER, r=RADIUS),
-    sample_size=1000,
+    num_samples=1000,
     trials_per_sample=10000,
     sample_res_map=lambda x: 4 * x,
 )

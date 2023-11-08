@@ -22,7 +22,7 @@ def is_under_sin(pt: Tuple[float, float]) -> bool:
 
 run_sims_and_report(
     fn=lambda: is_under_sin(pt=choose_point()),
-    sample_size=1000,
+    num_samples=1000,
     trials_per_sample=10000,
     sample_res_map=lambda x: 2 / x,
 )

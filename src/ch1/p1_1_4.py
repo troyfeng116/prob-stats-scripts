@@ -3,7 +3,7 @@ import random
 from utils.sim import run_sims_and_report
 
 """
-1.1.4.
+1.1.4
 
 In raquetball, a player continues to serve as long as she is winning; a point
 is scored only when a player is serving and wins the volley. The first player
@@ -43,7 +43,7 @@ def play_game() -> int:
 
 run_sims_and_report(
     fn=lambda: play_game() == 1,
-    sample_size=1000,
+    num_samples=1000,
     trials_per_sample=1000,
 )
 
