@@ -20,11 +20,11 @@ increases?
 
 
 def sample_buffon_point() -> Tuple[float, float]:
-    return random.random() * 0.5, random.random() * math.pi / 2
+    return random.random() / 2, random.random() * math.pi / 2
 
 
 def does_intersect_line(d: float, theta: float) -> bool:
-    return d <= 0.5 * math.sin(theta)
+    return d <= math.sin(theta) / 2
 
 
 run_sims_and_report(
