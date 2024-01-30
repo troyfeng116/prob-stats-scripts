@@ -1,4 +1,6 @@
 """
+Dominated Turtle
+
 Two turtles, Tort and Bort, are going to perform independent simple symmetric random walks
 on the integers starting at positions 0 and 4, respectively. Compute the probability after 
 10 steps, Tort and Bort are back at their initial positions and that Tort was strictly behind
