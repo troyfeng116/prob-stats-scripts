@@ -1,9 +1,3 @@
-import math
-
-from typing import Tuple
-
-from utils.sim import choose_point, run_sims_and_report
-
 """
 2.1.4
 
@@ -12,6 +6,12 @@ y = sin(pi x) inside the unit square by choosing 10,000 points at random. Now
 calculate the true value of this area and use your results to estimate the value
 of pi. How accurate is your estimate?
 """
+
+import math
+
+from typing import Tuple
+
+from utils.sim import choose_point, run_sims_and_report
 
 
 def is_under_sin(pt: Tuple[float, float]) -> bool:

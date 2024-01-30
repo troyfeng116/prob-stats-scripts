@@ -1,11 +1,6 @@
-import math
-import random
-
-from typing import Tuple
-
-from utils.sim import run_sims_and_report
-
 """
+2.1.7
+
 For Buffon's needle problem, Laplace considered a grid with horizontal and
 vertical lines one unit apart. He showed that the probability that a needle of
 length `L ≤ 1` crosses at least one line is
@@ -21,6 +16,14 @@ Write a program to estimate π by this method, run your program for 100,
 1000, and 10,000 experiments, and compare your results with Buffon's method
 described in Exercise 6. (Take `L = 1`.)
 """
+
+import math
+import random
+
+from typing import Tuple
+
+from utils.sim import run_sims_and_report
+
 
 L = 1
 

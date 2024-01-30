@@ -1,10 +1,3 @@
-import math
-import random
-
-from typing import Tuple
-
-from utils.sim import run_sims_and_report
-
 """
 2.1.6
 
@@ -17,6 +10,13 @@ times for each of 100, 1000, and 10,000 experiments. Does the accuracy of
 the experimental approximation for π improve as the number of experiments
 increases?
 """
+
+import math
+import random
+
+from typing import Tuple
+
+from utils.sim import run_sims_and_report
 
 
 def sample_buffon_point() -> Tuple[float, float]:

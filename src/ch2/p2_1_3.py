@@ -1,7 +1,3 @@
-from typing import Tuple
-
-from utils.sim import choose_point, run_sims_and_report
-
 """
 2.1.3
 
@@ -10,6 +6,11 @@ Alter the program MonteCarlo to estimate the area of the circle of radius
 at random. Compare your results with the true value of pi/4. Use your results
 to estimate the value of pi. How accurate is your estimate?
 """
+
+from typing import Tuple
+
+from utils.sim import choose_point, run_sims_and_report
+
 
 CENTER = (0.5, 0.5)
 RADIUS = 0.5

@@ -1,7 +1,3 @@
-import random
-
-from utils.sim import run_sims_and_report
-
 """
 1.1.4
 
@@ -12,6 +8,11 @@ probability .6 of winning a volley when you serve and probability .5 when
 your opponent serves. Estimate, by simulation, the probability that you will
 win a game.
 """
+
+import random
+
+from utils.sim import run_sims_and_report
+
 
 WINNING_SCORE = 21
 P1_SERVE_WIN_PROB = 0.6

@@ -1,9 +1,3 @@
-from itertools import permutations
-from random import randint
-from typing import List, Dict, Set
-
-from src.utils.sim import run_sims_and_report
-
 """
 3.1.20
 
@@ -12,6 +6,13 @@ a circular table for meals. Using simulation, estimate the probability that no
 two people sit next to each other at both lunch and dinner. Can you make an
 intelligent conjecture for the case of n participants when n is large?
 """
+
+from itertools import permutations
+from random import randint
+from typing import List, Dict, Set
+
+from src.utils.sim import run_sims_and_report
+
 
 N = 10
 
