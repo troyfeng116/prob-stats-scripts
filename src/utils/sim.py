@@ -2,7 +2,7 @@ import random
 import statistics
 
 from tqdm import tqdm
-from typing import Callable, Optional, Tuple
+from typing import Callable, Optional, Tuple, Union
 
 
 def choose_point(
@@ -25,25 +25,30 @@ def choose_point(
     )
 
 
-def run_single_sample(fn: Callable[[], bool], trials: int) -> float:
-    """Run `trials` trials of `fn`, tracking success rate.
+def run_single_sample(fn: Callable[[], Union[bool, int, float]], trials: int) -> float:
+    """Run `trials` trials of `fn`, tracking average value.
 
     Args:
-        fn (Callable[[], bool]): Single experiment trial runnable; return `True` iff success.
+        fn (Callable[[], Union[bool, int, float]]): Single experiment trial runnable.
+         For Bernoulli processes, return `True` iff success.
         trials (int): Number of trials to run.
 
     Returns:
-        float: Success rate across run trials.
+        float: Average value across run trials.
     """
 
-    ct = 0
+    total = 0
     for _ in range(trials):
-        ct += 1 if fn() else 0
-    return ct / trials
+        trial_res = fn()
+        if isinstance(trial_res, bool):
+            total += 1 if trial_res else 0
+        else:
+            total += trial_res
+    return total / trials
 
 
 def run_sims_and_report(
-    fn: Callable[[], bool],
+    fn: Callable[[], Union[bool, int, float]],
     num_samples: Optional[int] = 100,
     trials_per_sample: Optional[int] = 100,
     sample_res_map: Optional[Callable[[float], float]] = lambda x: x,
@@ -51,7 +56,8 @@ def run_sims_and_report(
     """Run `samples` rounds of `trials` trials of `fn`, compute + report sample aggregate statistics.
 
     Args:
-        fn (Callable[[], bool]): Single experiment trial runnable; return `True` iff success.
+        fn (Callable[[], Union[bool, int, float]]): Single experiment trial runnable.
+         For Bernoulli processes, return `True` iff success.
         num_samples (Optional[int], optional): Size of sample. Defaults to 100.
         trials_per_sample (Optional[int], optional): Number of trials to run per sample. Defaults to 100.
         sample_res_map (Optional[Callable[[float], float]], optional): Additional map to apply to each sample result. Defaults to identity.
